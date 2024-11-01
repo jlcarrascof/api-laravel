@@ -13,6 +13,14 @@ class ProductSeeder extends Seeder
      */
     public function run(): void
     {
-        
+        Product::create([
+            'name' => 'Producto de Ejemplo',
+            'description' => 'Descripción del producto de ejemplo.',
+            'price' => 99.99,
+            'stock' => 10,
+            'category_id' => 1,
+        ]);
+
+        Product::factory(10)->create(); // Generate 10 random products
     }
 }
