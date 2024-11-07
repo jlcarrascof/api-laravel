@@ -71,6 +71,8 @@ class ProductController extends Controller
             'category_id' => 'nullable|integer'
         ]);
 
+        $product->update($validated);
+        return response()->json($product);
     }
 
     /**
