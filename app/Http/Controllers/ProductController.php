@@ -37,6 +37,8 @@ class ProductController extends Controller
             'category_id' => 'nullable|integer'
         ]);
 
+        $product = Product::create($validated);
+        return response()->json($product, 201);
 
     }
 
