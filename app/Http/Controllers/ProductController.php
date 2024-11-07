@@ -61,9 +61,16 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Product $product)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'string',
+            'description' => 'nullable|string',
+            'price' => 'numeric',
+            'stock' => 'integer',
+            'category_id' => 'nullable|integer'
+        ]);
+
     }
 
     /**
