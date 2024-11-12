@@ -10,11 +10,17 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         $query = Product::query();
 
-        $products = Product::paginate(5);
+        // Filter by name
+
+        if ($request->has('name')) {
+            $query->where('name', 'like', '%' . $request->input('name') . '%');
+        }
+
+        $products = $query->paginate(5);
         return response()->json($products);
     }
 
