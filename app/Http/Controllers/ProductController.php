@@ -20,6 +20,12 @@ class ProductController extends Controller
             $query->where('name', 'like', '%' . $request->input('name') . '%');
         }
 
+        // Filter by price range
+
+        if ($request->has('min_price') && $request->has('max_price')) {
+            $query->whereBetween('price', [$request->input('min_price'), $request->input('max_price')]);
+        }
+
         $products = $query->paginate(5);
         return response()->json($products);
     }
