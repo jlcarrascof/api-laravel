@@ -26,6 +26,12 @@ class ProductController extends Controller
             $query->whereBetween('price', [$request->input('min_price'), $request->input('max_price')]);
         }
 
+        // Filter by category
+
+        if ($request->has('category_id')) {
+            $query->where('category_id', $request->input('category_id'));
+        }
+
         $products = $query->paginate(5);
         return response()->json($products);
     }
