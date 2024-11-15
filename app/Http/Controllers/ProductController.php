@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\ProductResource;
 use Illuminate\Http\Request;
 use App\Models\Product;
 
@@ -33,7 +34,7 @@ class ProductController extends Controller
         }
 
         $products = $query->paginate(5);
-        return response()->json($products);
+        return ProductResource::collection($products);
     }
 
     /**
