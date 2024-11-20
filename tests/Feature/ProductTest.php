@@ -18,13 +18,13 @@ class ProductTest extends TestCase
      */
     public function test_index_returns_all_products()
     {
-        // Crea 5 productos de prueba
+        // Create 5 test products
         Product::factory()->count(5)->create();
 
-        // Realiza la petición al endpoint
+        // Making the request to the endpoint
         $response = $this->getJson('/api/products');
 
-        // Verifica el estado HTTP y la cantidad de productos en la respuesta
+        // Check the HTTP status and the quantity of the response products.
         $response->assertStatus(200)
                  ->assertJsonCount(5, 'data');
     }
