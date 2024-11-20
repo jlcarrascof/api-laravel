@@ -16,10 +16,16 @@ class ProductTest extends TestCase
     /**
      * A basic feature test example.
      */
-    public function test_example(): void
+    public function test_index_returns_all_products()
     {
-        $response = $this->get('/');
+        // Crea 5 productos de prueba
+        Product::factory()->count(5)->create();
 
-        $response->assertStatus(200);
+        // Realiza la petición al endpoint
+        $response = $this->getJson('/api/products');
+
+        // Verifica el estado HTTP y la cantidad de productos en la respuesta
+        $response->assertStatus(200)
+                 ->assertJsonCount(5, 'data');
     }
 }
