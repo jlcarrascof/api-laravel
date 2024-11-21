@@ -28,4 +28,20 @@ class ProductTest extends TestCase
         $response->assertStatus(200)
                  ->assertJsonCount(5, 'data');
     }
+
+    public function test_store_creates_a_product()
+    {
+
+        // Test data for the product
+        $productData = [
+            'name' => 'Producto Prueba',
+            'description' => 'Descripción de prueba',
+            'price' => 99.99,
+            'stock' => 10,
+            'category_id' => 1,
+        ];
+
+
+
+}
 }
