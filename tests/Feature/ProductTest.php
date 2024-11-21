@@ -45,6 +45,8 @@ class ProductTest extends TestCase
 
         $response = $this->postJson('/api/products', $productData);
 
-
-}
+        // Check the HTTP status
+        $response->assertStatus(201)
+        ->assertJsonPath('data.name', 'Test Product');
+    }
 }
