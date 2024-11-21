@@ -41,6 +41,9 @@ class ProductTest extends TestCase
             'category_id' => 1,
         ];
 
+        // Making the request to the endpoint
+
+        $response = $this->postJson('/api/products', $productData);
 
 
 }
