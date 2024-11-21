@@ -34,10 +34,10 @@ class ProductTest extends TestCase
 
         // Test data for the product
         $productData = [
-            'name' => 'Producto Prueba',
-            'description' => 'Descripción de prueba',
-            'price' => 99.99,
-            'stock' => 10,
+            'name' => 'Test Product',
+            'description' => 'Descripción of Test product',
+            'price' => 66.66,
+            'stock' => 40,
             'category_id' => 1,
         ];
 
