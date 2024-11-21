@@ -6,6 +6,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use App\Models\Product; // Import the model Product
+use App\Models\Category;
 
 
 class ProductTest extends TestCase
@@ -32,10 +33,12 @@ class ProductTest extends TestCase
     public function test_store_creates_a_product()
     {
 
+        Category::factory()->create(['id' => 1]);
+
         // Test data for the product
         $productData = [
             'name' => 'Test Product',
-            'description' => 'Descripción of Test product',
+            'description' => 'Description of Test product',
             'price' => 66.66,
             'stock' => 40,
             'category_id' => 1,
