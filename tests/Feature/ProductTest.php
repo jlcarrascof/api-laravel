@@ -6,7 +6,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use App\Models\Product; // Import the model Product
-use App\Models\Category;
+use App\Models\Category; // Import the model Category
 
 
 class ProductTest extends TestCase
