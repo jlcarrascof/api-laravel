@@ -55,13 +55,13 @@ class ProductTest extends TestCase
 
     public function test_show_returns_a_product()
     {
-        // Crea un producto de prueba
+        // Crea a test product
         $product = Product::factory()->create();
 
-        // Realiza la petición al endpoint para obtener ese producto
+        // Make the request to the endpoint to get the product
         $response = $this->getJson("/api/products/{$product->id}");
 
-        // Verifica el estado HTTP y los datos devueltos
+        // Verify HTTP status and the data returned
         $response->assertStatus(200)
                 ->assertJsonPath('data.id', $product->id);
     }
