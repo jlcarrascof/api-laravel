@@ -52,4 +52,17 @@ class ProductTest extends TestCase
         $response->assertStatus(201)
         ->assertJsonPath('data.name', 'Test Product');
     }
+
+    public function test_show_returns_a_product()
+    {
+        // Crea un producto de prueba
+        $product = Product::factory()->create();
+
+        // Realiza la petición al endpoint para obtener ese producto
+        $response = $this->getJson("/api/products/{$product->id}");
+
+        // Verifica el estado HTTP y los datos devueltos
+        $response->assertStatus(200)
+                ->assertJsonPath('data.id', $product->id);
+    }
 }
