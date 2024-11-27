@@ -7,12 +7,13 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use App\Models\Product; // Import the model Product
 use App\Models\Category; // Import the model Category
+use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 
 class ProductTest extends TestCase
 {
 
-    use RefreshDatabase; // Clean and migrate the database before each test
+    use DatabaseMigrations; // Clean and migrate the database before each test
 
     /**
      * A basic feature test example.
