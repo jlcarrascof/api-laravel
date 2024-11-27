@@ -7,6 +7,7 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use App\Models\Product; // Import the model Product
 use App\Models\Category; // Import the model Category
+use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 
 class ProductTest extends TestCase
@@ -51,5 +52,18 @@ class ProductTest extends TestCase
         // Check the HTTP status
         $response->assertStatus(201)
         ->assertJsonPath('data.name', 'Test Product');
+    }
+
+    public function test_show_returns_a_product()
+    {
+        // Crea a test product
+        $product = Product::factory()->create();
+
+        // Make the request to the endpoint to get the product
+        $response = $this->getJson("/api/products/{$product->id}");
+
+        // Verify HTTP status and the data returned
+        $response->assertStatus(200)
+                ->assertJsonPath('data.id', $product->id);
     }
 }
