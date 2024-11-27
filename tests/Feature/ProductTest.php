@@ -13,7 +13,7 @@ use Illuminate\Foundation\Testing\DatabaseMigrations;
 class ProductTest extends TestCase
 {
 
-    use DatabaseMigrations; // Clean and migrate the database before each test
+    use RefreshDatabase; // Clean and migrate the database before each test
 
     /**
      * A basic feature test example.
