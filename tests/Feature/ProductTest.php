@@ -83,5 +83,11 @@ class ProductTest extends TestCase
             'name' => 'Updated Original Product',
             'price' => 150.00,
         ];
+
+        // Make the request endpoint PUT ...
+
+        $response = $this->putJson("/api/products/{$product->id}", $updatedData);
+
+
     }
 }
