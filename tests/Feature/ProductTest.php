@@ -66,4 +66,32 @@ class ProductTest extends TestCase
         $response->assertStatus(200)
                 ->assertJsonPath('data.id', $product->id);
     }
+
+    public function test_update_modifies_a_product()
+    {
+        // Create a test product...
+
+        $product = Product::factory()->create(
+            [
+                'name' => 'Original Product',
+                'price' => 100.00,
+        ]);
+
+        // Updated data for a product ..
+
+        $updatedData = [
+            'name' => 'Updated Original Product',
+            'price' => 150.75,
+        ];
+
+        // Make the request endpoint PUT ...
+
+        $response = $this->putJson("/api/products/{$product->id}", $updatedData);
+
+        // Verify HTTP status and the updated data
+
+        $response->assertStatus(200)
+                ->assertJsonPath('data.name', 'Updated Original Product')
+                ->assertJsonPath('data.price', 150.75);
+    }
 }

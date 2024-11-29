@@ -13,6 +13,10 @@ class Product extends Model
         'name', 'description', 'price', 'stock', 'category_id'
     ];
 
+    protected $casts = [
+        'price' => 'float', // Make sure that price will be always a float.
+    ];
+
     public function category()
     {
         return $this->belongsTo(Category::class);

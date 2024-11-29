@@ -101,11 +101,11 @@ class ProductController extends Controller
             'description' => 'nullable|string',
             'price' => 'numeric',
             'stock' => 'integer',
-            'category_id' => 'nullable|integer'
+            'category_id' => 'nullable|integer|exists:categories,id'
         ]);
 
         $product->update($validated);
-        return response()->json($product);
+        return new ProductResource($product->load('category'));
     }
 
     /**
