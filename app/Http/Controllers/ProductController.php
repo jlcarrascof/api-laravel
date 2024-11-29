@@ -101,7 +101,7 @@ class ProductController extends Controller
             'description' => 'nullable|string',
             'price' => 'numeric',
             'stock' => 'integer',
-            'category_id' => 'nullable|integer'
+            'category_id' => 'nullable|integer|exists:categories,id'
         ]);
 
         $product->update($validated);
