@@ -105,7 +105,7 @@ class ProductController extends Controller
         ]);
 
         $product->update($validated);
-        return response()->json($product);
+        return new ProductResource($product->load('category'));
     }
 
     /**
