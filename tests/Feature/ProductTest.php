@@ -88,6 +88,10 @@ class ProductTest extends TestCase
 
         $response = $this->putJson("/api/products/{$product->id}", $updatedData);
 
+        // Verify HTTP status and the updated data
 
+        $response->assertStatus(200)
+                ->assertJsonPath('data.name', 'Updated Original Product')
+                ->assertJsonPath('data.price', 150.00);
     }
 }
