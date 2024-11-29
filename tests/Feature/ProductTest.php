@@ -76,5 +76,12 @@ class ProductTest extends TestCase
                 'name' => 'Original Product',
                 'price' => 100.00,
         ]);
+
+        // Updated data for a product ..
+
+        $updatedData = [
+            'name' => 'Updated Original Product',
+            'price' => 150.00,
+        ];
     }
 }
