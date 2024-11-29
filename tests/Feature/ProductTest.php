@@ -81,7 +81,7 @@ class ProductTest extends TestCase
 
         $updatedData = [
             'name' => 'Updated Original Product',
-            'price' => 150.00,
+            'price' => 150.75,
         ];
 
         // Make the request endpoint PUT ...
@@ -92,6 +92,6 @@ class ProductTest extends TestCase
 
         $response->assertStatus(200)
                 ->assertJsonPath('data.name', 'Updated Original Product')
-                ->assertJsonPath('data.price', 150.00);
+                ->assertJsonPath('data.price', 150.75);
     }
 }
