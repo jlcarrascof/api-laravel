@@ -69,6 +69,12 @@ class ProductTest extends TestCase
 
     public function test_update_modifies_a_product()
     {
+        // Create a test product...
 
+        $product = Product::factory()->create(
+            [
+                'name' => 'Original Product',
+                'price' => 100.00,
+        ]);
     }
 }
