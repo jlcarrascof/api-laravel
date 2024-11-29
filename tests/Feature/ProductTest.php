@@ -66,4 +66,9 @@ class ProductTest extends TestCase
         $response->assertStatus(200)
                 ->assertJsonPath('data.id', $product->id);
     }
+
+    public function test_update_modifies_a_product()
+    {
+
+    }
 }
