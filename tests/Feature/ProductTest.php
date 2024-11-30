@@ -94,4 +94,20 @@ class ProductTest extends TestCase
                 ->assertJsonPath('data.name', 'Updated Original Product')
                 ->assertJsonPath('data.price', 150.75);
     }
+
+    public function test_destroy_deletes_a_product()
+    {
+        // Create a test product
+        $product = Product::factory()->create();
+
+        // Make the request to the endpoint to delete the product
+        $response = $this->deleteJson("/api/products/{$product->id}");
+
+        // Verify HTTP status
+        $response->assertStatus(200)
+                ->assertJson(['message' => 'Product deleted successfully']);
+
+        // Verify that the product was deleted
+        $this->assertDatabaseMissing('products', ['id' => $product->id]);
+    }
 }
