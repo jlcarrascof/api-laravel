@@ -101,6 +101,10 @@ class ProductTest extends TestCase
         $product = Product::factory()->create();
 
         // Make the request to the endpoint to delete the product
+        $response = $this->deleteJson("/api/products/{$product->id}");
+
+        // Verify HTTP status
+
 
     }
 }
