@@ -104,7 +104,9 @@ class ProductTest extends TestCase
         $response = $this->deleteJson("/api/products/{$product->id}");
 
         // Verify HTTP status
+        $response->assertStatus(200)
+                ->assertJson(['message' => 'Product deleted successfully']);
 
-
+        
     }
 }
