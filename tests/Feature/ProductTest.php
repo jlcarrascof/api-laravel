@@ -97,6 +97,10 @@ class ProductTest extends TestCase
 
     public function test_destroy_deletes_a_product()
     {
+        // Create a test product
+        $product = Product::factory()->create();
+
+        // Make the request to the endpoint to delete the product
 
     }
 }
