@@ -107,6 +107,7 @@ class ProductTest extends TestCase
         $response->assertStatus(200)
                 ->assertJson(['message' => 'Product deleted successfully']);
 
-        
+        // Verify that the product was deleted
+        $this->assertDatabaseMissing('products', ['id' => $product->id]);
     }
 }
