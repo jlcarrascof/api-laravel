@@ -94,4 +94,9 @@ class ProductTest extends TestCase
                 ->assertJsonPath('data.name', 'Updated Original Product')
                 ->assertJsonPath('data.price', 150.75);
     }
+
+    public function test_destroy_deletes_a_product()
+    {
+
+    }
 }
