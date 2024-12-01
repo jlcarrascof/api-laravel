@@ -6,11 +6,35 @@ use App\Http\Resources\ProductResource;
 use Illuminate\Http\Request;
 use App\Models\Product;
 
+/**
+ * @OA\Info(
+ *     title="API Laravel Documentation",
+ *     version="1.0.0",
+ *     description="Project YouTube API Laravel 11 Documentation",
+ *     @OA\Contact(
+ *         email="your-email@gmail.com"
+ *     )
+ * )
+*/
+
 class ProductController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     */
+    * @OA\Get(
+    *     path="/api/products",
+    *     summary="Get all products",
+    *     description="Return a list of products using pagination.",
+    *     @OA\Response(
+    *         response=200,
+    *         description="Products List.",
+    *         @OA\JsonContent(
+    *             type="object",
+    *             @OA\Property(property="data", type="array", @OA\Items(ref="#/components/schemas/Product"))
+     *         )
+    *     )
+    * )
+    */
+
     public function index(Request $request)
     {
         $query = Product::with('category');
