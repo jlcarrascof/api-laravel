@@ -2,7 +2,7 @@
     "openapi": "3.0.0",
     "info": {
         "title": "API Laravel Documentation",
-        "description": "API documentation for my Laravel project",
+        "description": "Project YouTube API Laravel 11 Documentation",
         "contact": {
             "email": "your-email@gmail.com"
         },
