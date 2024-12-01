@@ -8,9 +8,9 @@ use App\Models\Product;
 
 /**
  * @OA\Info(
- *     title="Project YouTube API Laravel 11 Documentation",
+ *     title="API Laravel Documentation",
  *     version="1.0.0",
- *     description="API documentation for my Laravel project",
+ *     description="Project YouTube API Laravel 11 Documentation",
  *     @OA\Contact(
  *         email="your-email@gmail.com"
  *     )
