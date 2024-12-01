@@ -6,6 +6,17 @@ use App\Http\Resources\ProductResource;
 use Illuminate\Http\Request;
 use App\Models\Product;
 
+/**
+ * @OA\Info(
+ *     title="API Laravel Documentation",
+ *     version="1.0.0",
+ *     description="API documentation for my Laravel project",
+ *     @OA\Contact(
+ *         email="your-email@gmail.com"
+ *     )
+ * )
+*/
+
 class ProductController extends Controller
 {
     /**
