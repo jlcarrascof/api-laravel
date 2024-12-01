@@ -9,8 +9,21 @@ use App\Models\Product;
 class ProductController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     */
+    * @OA\Get(
+    *     path="/api/products",
+    *     summary="Get all products",
+    *     description="Return a list of products using pagination.",
+    *     @OA\Response(
+    *         response=200,
+    *         description="Products List.",
+    *         @OA\JsonContent(
+    *             type="object",
+    *             @OA\Property(property="data", type="array", @OA\Items(ref="#/components/schemas/Product"))
+     *         )
+    *     )
+    * )
+    */
+
     public function index(Request $request)
     {
         $query = Product::with('category');
