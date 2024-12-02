@@ -70,8 +70,25 @@ class ProductController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     */
+     * @OA\Post(
+     *     path="/api/products",
+     *     summary="Create a new product",
+     *     description="Let create a new product with the ",
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\JsonContent(ref="#/components/schemas/Product")
+     *     ),
+     *     @OA\Response(
+     *         response=201,
+     *         description="Product created successfully",
+     *         @OA\JsonContent(ref="#/components/schemas/Product")
+     *     ),
+     *     @OA\Response(
+     *         response=400,
+     *         description="Bad request"
+     *     )
+     * )
+    */
     public function store(Request $request)
     {
         $validated = $request->validate([
