@@ -102,23 +102,23 @@ class ProductController extends Controller
     /**
     * @OA\Get(
     *     path="/api/products/{id}",
-    *     summary="Obtener un producto específico",
-    *     description="Retorna un producto basado en su ID",
+    *     summary="To get an specific product",
+    *     description="Return a specific product using its ID",
     *     @OA\Parameter(
     *         name="id",
     *         in="path",
-    *         description="ID del producto",
+    *         description="ID of the product",
     *         required=true,
     *         @OA\Schema(type="integer", example=1)
     *     ),
     *     @OA\Response(
     *         response=200,
-    *         description="Producto obtenido con éxito",
+    *         description="Product found",
     *         @OA\JsonContent(ref="#/components/schemas/Product")
     *     ),
     *     @OA\Response(
     *         response=404,
-    *         description="Producto no encontrado"
+    *         description="Product not found"
     *     )
     * )
     */
