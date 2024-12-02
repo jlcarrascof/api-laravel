@@ -70,8 +70,25 @@ class ProductController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     */
+     * @OA\Post(
+     *     path="/api/products",
+     *     summary="Create a new product",
+     *     description="Let create a new product with the ",
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\JsonContent(ref="#/components/schemas/Product")
+     *     ),
+     *     @OA\Response(
+     *         response=201,
+     *         description="Product created successfully",
+     *         @OA\JsonContent(ref="#/components/schemas/Product")
+     *     ),
+     *     @OA\Response(
+     *         response=400,
+     *         description="Bad request"
+     *     )
+     * )
+    */
     public function store(Request $request)
     {
         $validated = $request->validate([
@@ -100,8 +117,28 @@ class ProductController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     */
+    * @OA\Get(
+    *     path="/api/products/{id}",
+    *     summary="To get an specific product",
+    *     description="Return a specific product using its ID",
+    *     @OA\Parameter(
+    *         name="id",
+    *         in="path",
+    *         description="ID of the product",
+    *         required=true,
+    *         @OA\Schema(type="integer", example=1)
+    *     ),
+    *     @OA\Response(
+    *         response=200,
+    *         description="Product found",
+    *         @OA\JsonContent(ref="#/components/schemas/Product")
+    *     ),
+    *     @OA\Response(
+    *         response=404,
+    *         description="Product not found"
+    *     )
+    * )
+    */
     public function show(Product $product)
     {
         return new ProductResource($product->load('category'));
@@ -116,8 +153,32 @@ class ProductController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     */
+     * @OA\Put(
+     *     path="/api/products/{id}",
+     *     summary="Update a product",
+     *     description="Update a product using its ID",
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         description="ID of the product",
+     *         required=true,
+     *         @OA\Schema(type="integer", example=1)
+     *     ),
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\JsonContent(ref="#/components/schemas/Product")
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Product updated successfully",
+     *         @OA\JsonContent(ref="#/components/schemas/Product")
+     *     ),
+     *     @OA\Response(
+     *         response=404,
+     *         description="Product not found"
+     *     )
+     * )
+    */
     public function update(Request $request, Product $product)
     {
         $validated = $request->validate([
@@ -133,8 +194,27 @@ class ProductController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
-     */
+     * @OA\Delete(
+     *     path="/api/products/{id}",
+     *     summary="Delete a product",
+     *     description="Delete a product using its ID from the database",
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         description="Product ID",
+     *         required=true,
+     *         @OA\Schema(type="integer", example=1)
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description=""
+     *     ),
+     *     @OA\Response(
+     *         response=404,
+     *         description="Product not found"
+     *     )
+     * )
+    */
     public function destroy(Product $product)
     {
         $product->delete();
