@@ -100,8 +100,28 @@ class ProductController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     */
+    * @OA\Get(
+    *     path="/api/products/{id}",
+    *     summary="Obtener un producto específico",
+    *     description="Retorna un producto basado en su ID",
+    *     @OA\Parameter(
+    *         name="id",
+    *         in="path",
+    *         description="ID del producto",
+    *         required=true,
+    *         @OA\Schema(type="integer", example=1)
+    *     ),
+    *     @OA\Response(
+    *         response=200,
+    *         description="Producto obtenido con éxito",
+    *         @OA\JsonContent(ref="#/components/schemas/Product")
+    *     ),
+    *     @OA\Response(
+    *         response=404,
+    *         description="Producto no encontrado"
+    *     )
+    * )
+    */
     public function show(Product $product)
     {
         return new ProductResource($product->load('category'));
