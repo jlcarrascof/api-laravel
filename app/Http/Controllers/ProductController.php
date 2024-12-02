@@ -194,8 +194,27 @@ class ProductController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
-     */
+     * @OA\Delete(
+     *     path="/api/products/{id}",
+     *     summary="Delete a product",
+     *     description="Delete a product using its ID from the database",
+     *     @OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         description="Product ID",
+     *         required=true,
+     *         @OA\Schema(type="integer", example=1)
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description=""
+     *     ),
+     *     @OA\Response(
+     *         response=404,
+     *         description="Product not found"
+     *     )
+     * )
+    */
     public function destroy(Product $product)
     {
         $product->delete();
