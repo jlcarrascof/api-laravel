@@ -38,14 +38,14 @@
         },
         "/api/products/{id}": {
             "get": {
-                "summary": "Obtener un producto específico",
-                "description": "Retorna un producto basado en su ID",
+                "summary": "To get an specific product",
+                "description": "Return a specific product using its ID",
                 "operationId": "7ab21ddb713501f3d4c2914892c02a21",
                 "parameters": [
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "ID del producto",
+                        "description": "ID of the product",
                         "required": true,
                         "schema": {
                             "type": "integer",
@@ -55,7 +55,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Producto obtenido con éxito",
+                        "description": "Product found",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -65,7 +65,7 @@
                         }
                     },
                     "404": {
-                        "description": "Producto no encontrado"
+                        "description": "Product not found"
                     }
                 }
             }
