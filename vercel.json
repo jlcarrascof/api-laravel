@@ -1,9 +1,9 @@
 {
     "version": 2,
     "builds": [
-      { "src": "api-laravel/index.php", "use": "@vercel/php" }
+      { "src": "public/index.php", "use": "@vercel/php" }
     ],
     "routes": [
-      { "src": "/(.*)", "dest": "api-laravel/index.php" }
+      { "src": "/(.*)", "dest": "public/index.php" }
     ]
 }
